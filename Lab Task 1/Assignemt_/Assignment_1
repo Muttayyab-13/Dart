@@ -1,0 +1,22 @@
+void main() {
+  List<Map<String, dynamic>> products = [
+    {'name': 'Laptop', 'price': 1200, 'quantity': 5},
+    {'name': 'Phone', 'price': 800, 'quantity': 10},
+    {'name': 'Tablet', 'price': 600, 'quantity': 8}
+  ];
+
+  // Add new product
+  products.add({'name': 'Headphones', 'price': 150, 'quantity': 15});
+
+  // Find product by name
+  String search = 'Phone';
+  var result = products.firstWhere(
+    (p) => p['name'] == search,
+    orElse: () => {'message': 'Product not found'},
+  );
+  print("Search result for '$search': $result");
+
+  // Sort products by price
+  products.sort((a, b) => a['price'].compareTo(b['price']));
+  print("Sorted by price: $products");
+}
